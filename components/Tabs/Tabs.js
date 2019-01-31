@@ -6,7 +6,7 @@ class TabLink {
     
     // Get the custom data attribute on the Link
     this.data = element.dataset.tab;
-
+    
     // Using the custom data attribute get the associated Item element
     this.itemElement = document.querySelector(`.tabs-item[data-tab='${element.dataset.tab}'`);
     
@@ -27,6 +27,9 @@ class TabLink {
     // Add a class named "tabs-link-selected" to this link
     this.element.classList.add('tabs-link-selected');
     
+    // As each tab is read, mark it with a "○"
+    this.element.textContent = `○ Tab ${this.data}`
+
     // Call the select method on the item associated with this link
     this.itemElement.select();
   }
@@ -64,4 +67,10 @@ class TabItem {
 */
 
 links = document.querySelectorAll('.tabs-link');
+
+// Set each of the tabs to unread "●", except for Tab 1, set it to read "○"
+
+links.forEach( link => { link.textContent = `● Tab ${link.dataset.tab}`});
+document.querySelector(`.tabs-link[data-tab='1'`).textContent = `○ Tab 1`
+
 links.forEach( link => { new TabLink(link) });
