@@ -44,9 +44,12 @@ class TabItem {
 
     // Remove the class "tabs-item-selected" from each element
     Array.from(items).forEach( items => {items.classList.remove('tabs-item-selected')} );
-    
+    Array.from(items).forEach( items => {items.classList.remove('text-focus-in')} );
+
     // Add a class named "tabs-item-selected" to this element
     this.element.classList.add('tabs-item-selected');
+    //add fade in animation on selection
+    this.element.classList.add('text-focus-in');
   }
 }
 

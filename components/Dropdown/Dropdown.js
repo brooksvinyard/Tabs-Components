@@ -16,8 +16,12 @@ class Dropdown {
 
   toggleContent() {
     
-    // Toggle the ".dropdown-hidden" class off and on
-    this.content.classList.toggle('dropdown-hidden');;
+    // The page starts with the ".dropdown-hidden" class on, so it is off the page
+    this.content.classList.remove('dropdown-hidden');
+    
+    // Toggle the fade in and out classes on click
+    this.content.classList.toggle('slide-in-top');
+    this.content.classList.toggle('slide-out-top');
   }
 }
 
